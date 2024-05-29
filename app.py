@@ -1,4 +1,5 @@
 from ikigai import Ikigai
+from questions import Questions
 
 #Initialization
 """
@@ -11,6 +12,9 @@ my_ikigai = Ikigai(slove, sgood, sneeds, spaid)
 my_ikigai = Ikigai()
 
 # Dialog
+print("Language/Lingua (Enter/Escreva EN or/ou PT)")
+language = input()
+
 print("Whats your name?")
 name = input()
 print("Hi " + name + ". Welcome to the journy of discovering your Ikigai!")
@@ -39,6 +43,14 @@ paid = input()
 while paid != "x":
     my_ikigai.paid.append(paid) 
     paid = input()
+
+print("Whant more questions? (Press y, n or x)")
+qst = Questions(my_ikigai, language)
+print(qst.rndQuestion())
+random = input()
+while random != "x":
+    qst.saveAws(random)
+    random = input
 
 # Generate 
 my_ikigai.generate()
